@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<body>
+    <div id="contianer">
+        <canvas id="spriteContainer" class="carContainer">
+            <img class="car1" id ="car" src="images/carSprites.png">
+        </canvas>
+        <div id="controls">
+            <input type="radio" name="animation" id="default" checked>
+            <label for="default">Default</label><br>
+            <input type="radio" name="animation" id="braking">
+            <label for="braking"> Braking [for incorrect answers]</label><br>
+            <input type="radio" name="animation" id="speeding">
+            <label for="speeding"> Speed Boost [for correct answers]</label><br>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.addEventListener('load', function(){
+        ans = 0
+        const canvas = document.getElementById('spriteContainer');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 220 * 1.2;
+        canvas.height = 160 * 1.2; 
+        
+        class Car {
+            constructor(){ 
+                this.image = document.getElementById("car")
+                this.spriteWidth = 220;
+                this.spriteHeight = 160;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = 0;
+                this.y = 0;
+                this.scale = 1.2;
+                this.minFrame = 0;
+                this.maxFrame = 48;
+                this.frameX = 0;
+                this.frameY = 0;
+            }
+            draw(context){
+                context.drawImage(this.image, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width * this.scale, this.height * this.scale);
+            }
+            update(){
+                if (this.frameX < 15) this.frameX++ 
+                else this.frameX = 0;
+
+
+                const driving = document.getElementById('default');
+                driving.addEventListener('click', function(){
+                    car.frameY = 0;
+                }); 
+
+                const braking = document.getElementById('braking');
+                braking.addEventListener('click', function(){ 
+                    car.frameY = 2;
+                })
+
+                const speeding = document.getElementById('speeding');
+                speeding.addEventListener('click', function(){ 
+                    car.frameY = 1;
+                })
+
+            }
+        }
+        const car = new Car();
+        
+        function animate(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            car.draw(ctx);
+            car.update();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        });
+        
+</script>

@@ -1,0 +1,78 @@
+<body>
+    <div >
+        <canvas id="spriteContainer"> <!-- Within the base div is a canvas. An HTML canvas is used only for graphics. It allows the user to access some basic functions related to the image created on the canvas (including animation) -->
+            <img id ="dogSprite" src="https://github.com/Ekamjot-Kaire/fast-pages/assets/111466888/157f83bd-3eda-4696-ac88-d3a993cce621"> 
+        </canvas>
+        <div id="controls"> <!--basic radio buttons which can be used to check whether each individual animaiton works -->
+            <input type="radio" name="animation" id="idle" checked>
+            <label for="idle">Idle</label><br>
+            <input type="radio" name="animation" id="barking">
+            <label for="barking"> Barking</label><br>
+            <input type="radio" name="animation" id="walking">
+            <label for="walking"> Walking</label><br>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.addEventListener('load', function(){
+        sheet_row = 0 
+        const canvas = document.getElementById('spriteContainer');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 160 * 2; 
+        canvas.height = 144 * 2; 
+
+        class Dog {
+            constructor(){ 
+                this.image = document.getElementById("dogSprite")
+                this.spriteWidth = 160;
+                this.spriteHeight = 144;
+                this.width = this.spriteWidth;
+                this.height = this.spriteHeight;
+                this.x = 0;
+                this.y = 0;
+                this.scale = 1;
+                this.minFrame = 0;
+                this.maxFrame = 48; 
+                this.frameX = 0; 
+                this.frameY = 0;
+            }
+
+            draw(context){
+                context.drawImage(this.image, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width * this.scale, this.height * this.scale);
+            }
+
+            update(){
+                if (this.frameX < 47) this.frameX++ 
+                else this.frameX = 0; 
+
+                const idle = document.getElementById('idle');
+                idle.addEventListener('click', function(){
+                    dog.frameY = 0;
+                }); 
+
+                const barking = document.getElementById('barking');
+                barking.addEventListener('click', function(){ 
+                    dog.frameY = 1;
+                    console.log('hello');
+                });
+
+                const walking = document.getElementById('walking');
+                walking.addEventListener('click', function(){ 
+                    dog.frameY = 2;
+                });
+            };
+        };
+
+        const dog = new Dog(); // creates new instance of object with class Dog
+
+        function animate(){ 
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // clears canvas of previous frame before generating new frame
+            dog.draw(ctx); // draw method from Dog class: generates image
+            dog.update(); // update method from Dog class: moves origin point for the next frame drawn 
+            requestAnimationFrame(animate); // built in function; lets the browser know you want an animation to be displayed; sets the rate at the usual animation rate of 24 frames per second
+}
+animate();
+
+});
+</script>
