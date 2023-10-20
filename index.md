@@ -1,15 +1,52 @@
 ---
 layout: default
-title: Student Blog
+title: Ekam Kaire
 ---
 
+> Freeform image (drawn on Week 1)
 
-## Build you Home Page here 
-This is about your journey. Start now!!!
+![](images/freeform.png)
 
-## Overview of Hacks, Study and Tangibles
-Blogging in GitHub pages is a way to learn and code at the same time. 
+<br>
 
-- Plans, Lists, [Scrum Boards](https://clickup.com/blog/scrum-board/) help you to track key events, show progress and record time.  Effort is a big part of your class grade.  Show plans and time spent!
-- [Hacks(Todo)](https://levelup.gitconnected.com/six-ultimate-daily-hacks-for-every-programmer-60f5f10feae) enable you to stay in focus with key requirements of the class.  Each Hack will produce Tangibles.
-- Tangibles or [Tangible Artifacts](https://en.wikipedia.org/wiki/Artifact_(software_development)) are things you accumulate as a learner and coder. 
+<h2> CSA OBJECTIVES + RESOURCES </h2>
+<br>
+<br>
+<h3> UNIT 1: Primitive Types </h3>
+<br>
+<strong>
+<a href="https://ekam.nighthawkcodingsociety.com/2023/09/01/unit1notes.html">- 1.1 Why Java: OOP, System classes, basic syntax </a>
+- 1.2 Variable and Data Types:
+- 1.3 Expressions and Assignment Statements:
+- 1.4 Compound Assignment Operators:
+- 1.5 Casting and Ranges of Variables: 
+
+
+<br>
+<br>
+
+
+<h2> PLANS BY WEEK </h2>
+
+<strong> WEEK 0 + 1: </strong>
+- Set up tools + enviornments --> done
+- Rework theme --> done
+- Fix front page --> done
+
+<br>
+
+<strong> WEEK 2: </strong>
+- Apply Lab Notebook setup to blog --> done 
+- Java console games + understand basics of Java classes and objects --> done (partially?)
+
+
+<br>
+<br>
+ft the iconic frog: 
+
+
+<img src="https://i.pinimg.com/originals/83/ce/1e/83ce1e01b27c36bc241948cb3c2c555f.jpg" 
+     width="200" 
+     height="300" />
+
+<br> 
